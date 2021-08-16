@@ -1,0 +1,50 @@
+// Here you can add other styles
+.text-white{
+    color:#fff;
+}
+.bold {
+    font-weight:bold;
+}
+.border-right{
+    border-right:#383942 1px solid;
+}
+.custom-footer {
+    position: fixed;
+    bottom:10;
+    right:10;
+    bottom: 52px;
+    right: 34px;
+}
+// @media only screen and (max-width: 600px) {
+//     .custom-footer {
+//         margin-left:-15px !important;
+//     }
+// }
+
+$vs-component-line-height: 1.7 !default;
+.c-dark-theme .vs__search, .c-dark-theme .vs__open-indicator{
+    color:#fff !important;
+    fill:#fff !important;
+}
+.c-dark-theme .vs__dropdown-toggle {
+    background:#2F303A !important;
+}
+
+.customize-table {
+    width:100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #D8DBE0;
+    border-radius:10px !important;
+}
+.c-dark-theme .customize-table, .c-dark-theme .customize-table td, .c-dark-theme .customize-table th {
+    border-color: #fff !important;
+}
+.customize-table td, .customize-table th{
+    padding:7px 13px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #D8DBE0;
+}
+
+// $vs-component-placeholder-color: #fff !default;
