@@ -43,6 +43,9 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  created(){
+    console.log(process.env.VUE_APP_BACKEND);
+  }
 }
 </script>
