@@ -76,8 +76,5 @@ export default {
       this.items = this.$route.meta.breadcrumb;
     }
   },
-  created(){
-    console.log(this.$route);
-  }
 }
 </script>

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from "@/store";
 
 // Containers
 const TheContainer = () => import('@/containers/TheContainer')
@@ -35,6 +36,14 @@ export default new Router({
             path: '',
             name: 'Dashboard',
             component: Dashboard,
+            beforeEnter: (to, from, next) => {
+              if (!store.getters["auth/authenticated"]) {
+                next({
+                  name: "Login"
+                });
+              }
+              next();
+            },
             meta: {
               breadcrumb: [
                 { text: 'Dashboard' }

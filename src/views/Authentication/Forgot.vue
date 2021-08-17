@@ -2,13 +2,13 @@
   <div class="c-app flex-row align-items-center" :class="{ 'c-dark-theme': $store.state.darkMode }">
     <CContainer>
       <CRow class="justify-content-center">
-        <CCol md="4">
-          <CCardGroup>
+        <CCol md="7" sm="12" lg="4" class="text-center">
               <img src="/img/brand/logo.png">
             <CCard class="p-4">
               <CCardBody>
                 <CForm class="text-center">
                   <h1>Forgot Password</h1>
+                  <p class="text-muted">Enter your email to forgot your password</p>
                   <CInput
                     placeholder="Email"
                     autocomplete="username email"
@@ -26,7 +26,6 @@
                 </CForm>
               </CCardBody>
             </CCard>
-          </CCardGroup>
         </CCol>
       </CRow>
     </CContainer>

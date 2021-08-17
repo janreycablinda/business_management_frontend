@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import auth from "./modules/auth";
+import notification from "./modules/notification";
+
 Vue.use(Vuex)
 
 const state = {
@@ -28,5 +31,10 @@ const mutations = {
 
 export default new Vuex.Store({
   state,
-  mutations
-})
+  mutations,
+  actions: {},
+  modules: {
+    auth,
+    notification
+  }
+});

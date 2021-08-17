@@ -28,20 +28,40 @@
     <CDropdownItem>
       <CIcon name="cil-shield-alt" /> Lock Account
     </CDropdownItem>
-    <CDropdownItem>
+    <CDropdownItem @click="signOut">
       <CIcon name="cil-lock-locked" /> Logout
     </CDropdownItem>
   </CDropdown>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: 'TheHeaderDropdownAccnt',
   data () {
     return { 
       itemsCount: 42
     }
-  }
+  },
+  computed: {
+    ...mapGetters({
+        authenticated: "auth/authenticated",
+        user: "auth/user"
+    })
+  },
+  methods: {
+    ...mapActions({
+      signOutAction: "auth/signOut"
+    }),
+    signOut() {
+      this.signOutAction().then(() => {
+        this.$router.replace({
+          name: "Login"
+        });
+      });
+    }
+  },
 }
 </script>
 

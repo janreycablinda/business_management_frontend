@@ -1,10 +1,18 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <router-view></router-view>
+    <notifications-list />
+  </div>
 </template>
 
 <script>
+import NotificationsList from './containers/NotificationsList';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    NotificationsList
+  }
 }
 </script>
 

@@ -40,6 +40,7 @@
     "@coreui/vue-chartjs": "^1.0.6",
     "@coreui/vue-pro": "~3.2.3",
     "apexcharts": "^3.27.3",
+    "axios": "^0.21.1",
     "vue": "^2.6.12",
     "vue-router": "~3.3.4",
     "vue-select": "^3.12.2",
