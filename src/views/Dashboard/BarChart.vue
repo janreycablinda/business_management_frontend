@@ -16,12 +16,12 @@ export default {
       return [
         {
           label: 'Sales',
-          backgroundColor: '#392EA3',
+          backgroundColor: '#F50200',
           data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
         },
         {
           label: 'Expenses',
-          backgroundColor: '#2A2B36',
+          backgroundColor: '#000000',
           data: [30, 10, 10, 29, 5, 30, 29, 70, 30, 10, 10, 10]
         }
       ]

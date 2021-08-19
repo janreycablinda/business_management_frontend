@@ -8,7 +8,7 @@ Vue.use(Vuex)
 const state = {
   sidebarShow: 'responsive',
   sidebarMinimize: false,
-  darkMode: true,
+  darkMode: false,
   asideShow: false
 }
 

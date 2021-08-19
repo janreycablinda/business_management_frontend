@@ -6,8 +6,8 @@
     @update:show="(value) => $store.commit('set', ['sidebarShow', value])"
   >
     <CSidebarBrand to="/">
-      <img height="35" class="c-sidebar-brand-full" src="/img/brand/logo.png">
-      <img height="35" class="c-sidebar-brand-minimized" src="/img/brand/logo.png">
+      <img height="35" class="c-sidebar-brand-full" src="/img/upload/logo.png">
+      <img height="35" class="c-sidebar-brand-minimized" src="/img/upload/logo.png">
     </CSidebarBrand>
     <CRenderFunction flat :contentToRender="sidebarItems"/>
     <CSidebarMinimizer

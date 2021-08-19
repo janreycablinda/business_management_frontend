@@ -18,12 +18,12 @@
     <CDropdownHeader tag="div" class="text-center" color="light">
       <strong>Account</strong>
     </CDropdownHeader>
-    <CDropdownItem>
+    <CDropdownItem to="/profile">
       <CIcon name="cil-user" /> Profile
     </CDropdownItem>
-    <CDropdownItem>
+    <!-- <CDropdownItem>
       <CIcon name="cil-settings" /> Settings
-    </CDropdownItem>
+    </CDropdownItem> -->
     <CDropdownDivider/>
     <CDropdownItem>
       <CIcon name="cil-shield-alt" /> Lock Account

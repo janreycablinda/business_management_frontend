@@ -4,7 +4,7 @@
             <CCol lg="12">
                 <CCard>
                     <CCardHeader>
-                        <CButton to="/customers/new-customer" size="sm" color="primary">
+                        <CButton to="/sales/invoices/create-invoice" size="sm" color="primary">
                             CREATE NEW INVOICE
                         </CButton>&nbsp;
                         <CButton to="/customers/import-customers" size="sm" color="primary">

@@ -12,6 +12,7 @@ const NewCustomers = () => import('@/views/Customers/NewCustomers')
 const ImportCustomers = () => import('@/views/Customers/ImportCustomers')
 const CustomerProfile = () => import('@/views/Customers/CustomerProfile')
 const Invoices = () => import('@/views/Sales/Invoices/View')
+const CreateInvoice = () => import('@/views/Sales/Invoices/CreateInvoice')
 const Estimates = () => import('@/views/Sales/Estimates/View')
 const Payments = () => import('@/views/Sales/Payments/View')
 const Credit_Note = () => import('@/views/Sales/Credit Notes/View')
@@ -19,6 +20,7 @@ const Expenses = () => import('@/views/Expenses/View')
 const Accounting_Dashboard = () => import('@/views/Accounting/Dashboard/View')
 const Login = () => import('@/views/Authentication/Login')
 const Forgot = () => import('@/views/Authentication/Forgot')
+const Profile = () => import('@/views/Profile/View')
 
 Vue.use(Router)
 
@@ -116,6 +118,17 @@ export default new Router({
             }
         },
         {
+            path: '/sales/invoices/create-invoice',
+            name: 'Invoices',
+            component: CreateInvoice,
+            meta: {
+              breadcrumb: [
+                { text: 'Invoices', to: '/sales/invoices' },
+                { text: 'Create Invoice' }
+              ]
+            }
+        },
+        {
             path: '/sales/estimates',
             name: 'Estimates',
             component: Estimates,
@@ -174,6 +187,22 @@ export default new Router({
             meta: {
               breadcrumb: [
                 { text: 'Dashboard' }
+              ]
+            }
+        },
+      ]
+    },
+    {
+      path: '/profile',
+      component: TheContainer,
+      children: [
+        {
+            path: '',
+            name: 'Profile',
+            component: Profile,
+            meta: {
+              breadcrumb: [
+                { text: 'Profile' }
               ]
             }
         },

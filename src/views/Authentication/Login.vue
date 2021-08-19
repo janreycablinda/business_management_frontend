@@ -3,7 +3,7 @@
     <CContainer>
       <CRow class="justify-content-center">
         <CCol md="7" sm="12" lg="4" class="text-center">
-              <img src="/img/brand/logo.png">
+              <img width="100%" src="/img/upload/logo.png">
             <CCard class="p-4">
               <CCardBody>
                 <CForm class="text-center">
@@ -13,7 +13,7 @@
                     placeholder="Username"
                     autocomplete="username email"
                     v-model="form.username"
-                    @keyup.enter="submit"
+                    @keyup.enter="triggerSubmit"
                   >
                     <template #prepend-content><CIcon name="cil-user"/></template>
                   </CInput>
@@ -22,19 +22,16 @@
                     type="password"
                     autocomplete="curent-password"
                     v-model="form.password"
-                    @keyup.enter="submit"
+                    @keyup.enter="triggerSubmit"
                   >
                     <template #prepend-content><CIcon name="cil-lock-locked"/></template>
                   </CInput>
                   <CRow>
                     <CCol col="6" class="text-left">
-                      <CButton @click="submit" color="primary" class="px-4">
-                        <CSpinner v-if="spinner" color="white" size="sm"/>
-                        Login
-                      </CButton>
+                      <CLoadingButton ref="submitBtn" :onChange="submit" timeout="2000" color="primary">Login</CLoadingButton>
                     </CCol>
                     <CCol col="6" class="text-right">
-                      <CButton to="/forgot" color="link" class="px-0 text-white">Forgot password?</CButton>
+                      <CButton to="/forgot" color="link" class="px-0 text-white-darkmode">Forgot password?</CButton>
                     </CCol>
                   </CRow>
                 </CForm>
@@ -61,6 +58,9 @@ export default {
         username: '',
         password: ''
       }
+    },
+    triggerSubmit(){
+      this.$refs.submitBtn.methodOnClick()
     },
     submit(){
       this.spinner = true;

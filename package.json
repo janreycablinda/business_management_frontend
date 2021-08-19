@@ -39,6 +39,7 @@
     "@coreui/icons": "^2.0.0-rc.0",
     "@coreui/vue-chartjs": "^1.0.6",
     "@coreui/vue-pro": "~3.2.3",
+    "@johmun/vue-tags-input": "^2.1.0",
     "apexcharts": "^3.27.3",
     "axios": "^0.21.1",
     "vue": "^2.6.12",
