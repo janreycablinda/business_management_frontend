@@ -19,6 +19,12 @@ export default {
             icon: 'cil-group',
           },
           {
+            _name: 'CSidebarNavItem',
+            name: 'Roles & Permissions',
+            to: '/role_permission',
+            icon: 'cil-shield-alt',
+          },
+          {
             _name: 'CSidebarNavDropdown',
             name: 'Sales',
             route: '/dropdown',
@@ -50,7 +56,7 @@ export default {
             items: [
               {
                 name: 'Items',
-                // to: '/dropdown/first',
+                to: '/inventory/items',
               },
               {
                 name: 'Stock In/Out',

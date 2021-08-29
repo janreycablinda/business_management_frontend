@@ -63,7 +63,7 @@
 export default {
   name: 'TheHeaderDropdownNotif',
   data () {
-    return { itemsCount: 5 }
+    return { itemsCount: 0 }
   }
 }
 </script>

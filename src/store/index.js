@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from "./modules/auth";
 import notification from "./modules/notification";
+import unit from "./modules/unit";
+import group from "./modules/group";
+import item from "./modules/item";
 
 Vue.use(Vuex)
 
@@ -35,6 +38,9 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     auth,
-    notification
+    notification,
+    unit,
+    group,
+    item
   }
 });

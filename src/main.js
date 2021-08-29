@@ -7,6 +7,8 @@ import router from './router/index'
 import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store/index'
 import axios from 'axios'
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 require("@/store/subscriber");
 

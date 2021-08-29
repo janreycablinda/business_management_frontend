@@ -27,7 +27,10 @@ import {
   cilCash,
   cilTag,
   cilInfo,
-  cilCalendar
+  cilCalendar,
+  cilCog,
+  cilPencil,
+  cilTrash
 
 } from '@coreui/icons'
 import { logo } from './logo'
@@ -62,5 +65,8 @@ export const iconsSet = Object.assign({}, {
   cilCash,
   cilTag,
   cilInfo,
-  cilCalendar
+  cilCalendar,
+  cilCog,
+  cilPencil,
+  cilTrash
 })

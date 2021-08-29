@@ -58,6 +58,13 @@ $vs-component-line-height: 1.7 !default;
     border-style: solid;
     border-color: #D8DBE0;
 }
+.radius-5 {
+    border-radius:5px;
+}
+.border-red{
+    border: 1px solid #E55353;
+    border-radius: 5px;
+}
 .v-select.drop-up.vs--open .vs__dropdown-toggle {
     border-radius: 0 0 4px 4px;
     border-top-color: transparent;

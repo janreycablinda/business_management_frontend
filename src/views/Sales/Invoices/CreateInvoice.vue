@@ -111,7 +111,160 @@
         <CCol lg="12">
             <CCard>
                 <CCardBody>
-                    test
+                    <CRow>
+                        <CCol lg="4">
+                            <v-select
+                                :options="$options.multiselectOptions" 
+                                placeholder="Select Item"
+                                append-to-body
+                                :calculate-position="withPopper"
+                            >
+                            <template #append>
+                                <CButton color="primary">Go!</CButton>
+                            </template>
+                            </v-select>
+                        </CCol>
+                        <CCol lg="1">
+                            <CInput
+                            type="number"
+                            placeholder="Qty"
+                            />
+                        </CCol>
+                        <CCol lg="2">
+                            <CButton color="primary">ADD ITEM</CButton>
+                        </CCol>
+                    </CRow>
+                    <table class="custom-table mt-2">
+                        <tr>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th>Qty</th>
+                            <th>Rate</th>
+                            <th>Tax</th>
+                            <th>Amount</th>
+                            <th width="2%"><CIcon name="cil-cog"/></th>
+                        </tr>
+                        <tr>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td><CButton size="sm" color="primary"><CIcon name="cil-pencil"/></CButton></td>
+                        </tr>
+                    </table>
+                    <!-- <CRow class="mt-4">
+                        <CCol lg="2">
+                            <CTextarea
+                                placeholder="Item"
+                                rows="2"
+                            />
+                        </CCol>
+                        <CCol lg="2">
+                            <CTextarea
+                                placeholder="Long description"
+                                rows="2"
+                            />
+                        </CCol>
+                        <CCol lg="1">
+                            <CInput
+                            type="number"
+                            placeholder="Qty"
+                            autocomplete="email"
+                            />
+                        </CCol>
+                        <CCol lg="2">
+                            <CInput
+                            type="number"
+                            placeholder="Rate"
+                            autocomplete="email"
+                            />
+                        </CCol>
+                        <CCol lg="2">
+                            <CSelect
+                                placeholder="Tax"
+                                :options="['No discount', 'Before Tax', 'After Tax']"
+                            />
+                        </CCol>
+                        <CCol lg="1">
+                           <span>amount</span>
+                        </CCol>
+                        <CCol lg="2">
+                           <CButton color="primary">ADD ITEM</CButton>
+                        </CCol>
+                    </CRow> -->
+                    <!-- <ItemTable/> -->
+                    <CRow align="right" class="mt-5">
+                        <CCol lg="11">
+                            Sub Total :
+                        </CCol>
+                        <CCol lg="1">
+                            ₱0.00
+                        </CCol>
+                    </CRow>
+                    <CRow align="right" class="mt-3">
+                        <CCol lg="9">
+                            Discount
+                        </CCol>
+                        <CCol lg="2">
+                            <CInput
+                            type="number"
+                            autocomplete="email"
+                            >
+                            <template #append>
+                                <CDropdown
+                                togglerText="%"
+                                color="primary"
+                                right
+                                >
+                                    <CDropdownItem>%</CDropdownItem>
+                                    <CDropdownItem>Fixed Amount</CDropdownItem>
+                                </CDropdown>
+                            </template>
+                            </CInput>
+                        </CCol>
+                        <CCol lg="1">
+                            ₱0.00
+                        </CCol>
+                    </CRow>
+                    <CRow align="right">
+                        <CCol lg="11">
+                            <b>Total :</b>
+                        </CCol>
+                        <CCol lg="1">
+                            <b>₱0.00</b>
+                        </CCol>
+                    </CRow>
+                </CCardBody>
+            </CCard>
+        </CCol>
+        <CCol lg="12">
+            <CCard>
+                <CCardBody>
+                    <CRow>
+                        <CCol lg="12">
+                            <CTextarea
+                                label="Client Note"
+                                rows="3"
+                            />
+                            <CTextarea
+                                label="Terms & Conditions"
+                                rows="3"
+                            />
+                        </CCol>
+                    </CRow>
+                </CCardBody>
+            </CCard>
+        </CCol>
+        <CCol lg="12">
+            <CCard>
+                <CCardBody>
+                    <CRow>
+                        <CCol>
+                            <CButton color="primary">SAVE</CButton>
+                        </CCol>
+                    </CRow>
                 </CCardBody>
             </CCard>
         </CCol>
@@ -125,7 +278,7 @@ import VueTagsInput from '@johmun/vue-tags-input';
 export default {
     components: {
         vSelect,
-        VueTagsInput
+        VueTagsInput,
     },
     data(){
         return {
@@ -257,3 +410,16 @@ export default {
   ]
 }
 </script>
+<style>
+.custom-table {
+    width:100%;
+}
+.custom-table th{
+    background:#415164;
+    color:#fff;
+    padding:8px 15px;
+}
+.custom-table td{
+    padding:8px 15px;
+}
+</style>
