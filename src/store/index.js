@@ -5,6 +5,11 @@ import notification from "./modules/notification";
 import unit from "./modules/unit";
 import group from "./modules/group";
 import item from "./modules/item";
+import import_item from "./modules/import";
+import stockin from "./modules/stockin";
+import stockout from "./modules/stockout";
+import customer from "./modules/customer";
+import inventory from "./modules/inventory";
 
 Vue.use(Vuex)
 
@@ -41,6 +46,11 @@ export default new Vuex.Store({
     notification,
     unit,
     group,
-    item
+    item,
+    import_item,
+    stockin,
+    customer,
+    stockout,
+    inventory
   }
 });

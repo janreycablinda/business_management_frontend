@@ -57,6 +57,14 @@
             invalidFeedback="Unit Cost is required!"
             :value.sync="$v.form.unit_cost.$model"
         />
+        <CInput
+            type="number"
+            label="Minimum Notifier *"
+            v-model="form.notifier"
+            :isValid="checkIfValid('notifier')"
+            invalidFeedback="Minimum Notifier is required!"
+            :value.sync="$v.form.notifier.$model"
+        />
         <label>Group *</label>
         <v-select
             :options="groups | groupFilter" 
@@ -71,7 +79,7 @@
         </div>
       <template #footer>
         <CButton @click="addModalShow = false" color="secondary">CLOSE</CButton>
-        <CButton @click="submit" color="primary">SAVE</CButton>
+        <CButton id="btn-item-save" @click="submit" color="primary">SAVE</CButton>
       </template>
     </CModal>
 </template>
@@ -150,6 +158,9 @@ export default {
                 group_id: {
                     required
                 },
+                notifier: {
+                    required
+                },
             },
         }
     },
@@ -167,10 +178,12 @@ export default {
         submit(){
             this.validate();
             if (this.isValid) {
+                this.$root.btn_load(true, 'btn-item-save', 'SAVE');
                 this.$store.dispatch('item/createItem', this.form).then(() => {
                     this.form = this.getEmptyForm();
                     this.$v.$reset();
                     this.addModalShow = false;
+                    this.$root.btn_load(false, 'btn-item-save', 'SAVE');
                 });
             }
         },
@@ -184,6 +197,7 @@ export default {
                 qty: '',
                 unit_cost: '',
                 group_id: '',
+                notifier: ''
             }
         }
     },

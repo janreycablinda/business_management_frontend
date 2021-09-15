@@ -23,7 +23,10 @@ const Login = () => import('@/views/Authentication/Login')
 const Forgot = () => import('@/views/Authentication/Forgot')
 const Profile = () => import('@/views/Profile/View')
 const Items = () => import('@/views/Inventory/Items/View')
-
+const ImportItems = () => import('@/views/Inventory/Items/ImportItems/View')
+const Stockin = () => import('@/views/Inventory/StockIn/View')
+const Stockout = () => import('@/views/Inventory/StockOut/View')
+const Inventory = () => import('@/views/Inventory/Inventory/View')
 
 Vue.use(Router)
 
@@ -264,6 +267,24 @@ export default new Router({
       component: TheContainer,
       children: [
         {
+          path: '',
+          name: 'Inventory',
+          component: Inventory,
+          beforeEnter: (to, from, next) => {
+            if (!store.getters["auth/authenticated"]) {
+              next({
+                name: "Login"
+              });
+            }
+            next();
+          },
+          meta: {
+            breadcrumb: [
+              { text: 'Items' }
+            ]
+          }
+        },
+        {
             path: '/inventory/items',
             name: 'Items',
             component: Items,
@@ -281,6 +302,61 @@ export default new Router({
               ]
             }
         },
+        {
+          path: '/inventory/import-items',
+          name: 'ImportItems',
+          component: ImportItems,
+          beforeEnter: (to, from, next) => {
+            if (!store.getters["auth/authenticated"]) {
+              next({
+                name: "Login"
+              });
+            }
+            next();
+          },
+          meta: {
+            breadcrumb: [
+              { text: 'Items' }
+            ]
+          }
+        },
+        {
+          path: '/inventory/stockin',
+          name: 'Stockin',
+          component: Stockin,
+          beforeEnter: (to, from, next) => {
+            if (!store.getters["auth/authenticated"]) {
+              next({
+                name: "Login"
+              });
+            }
+            next();
+          },
+          meta: {
+            breadcrumb: [
+              { text: 'Items' }
+            ]
+          }
+        },
+        {
+          path: '/inventory/stockout',
+          name: 'Stockout',
+          component: Stockout,
+          beforeEnter: (to, from, next) => {
+            if (!store.getters["auth/authenticated"]) {
+              next({
+                name: "Login"
+              });
+            }
+            next();
+          },
+          meta: {
+            breadcrumb: [
+              { text: 'Items' }
+            ]
+          }
+        },
+        
       ]
     },
     {

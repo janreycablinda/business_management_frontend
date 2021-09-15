@@ -3,7 +3,7 @@
     <CRow>
         <CCol col="12" sm="6" lg="4">
             <CWidgetIcon
-            header="$1.999,50"
+            header="₱0"
             text="Sales"
             color="gradient-primary"
             :icon-padding="false"
@@ -13,7 +13,7 @@
         </CCol>
         <CCol col="12" sm="6" lg="4">
             <CWidgetIcon
-            header="$1.999,50"
+            header="₱0"
             text="Cash Collected"
             color="gradient-primary"
             :icon-padding="false"
@@ -23,7 +23,7 @@
         </CCol>
         <CCol col="12" sm="6" lg="4">
             <CWidgetIcon
-            header="$1.999,50"
+            header="₱0"
             text="Expenses"
             color="gradient-primary"
             :icon-padding="false"

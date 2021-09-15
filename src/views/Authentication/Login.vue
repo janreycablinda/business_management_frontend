@@ -13,7 +13,7 @@
                     placeholder="Username"
                     autocomplete="username email"
                     v-model="form.username"
-                    @keyup.enter="triggerSubmit"
+                    @keyup.enter="submit"
                   >
                     <template #prepend-content><CIcon name="cil-user"/></template>
                   </CInput>
@@ -22,13 +22,13 @@
                     type="password"
                     autocomplete="curent-password"
                     v-model="form.password"
-                    @keyup.enter="triggerSubmit"
+                    @keyup.enter="submit"
                   >
                     <template #prepend-content><CIcon name="cil-lock-locked"/></template>
                   </CInput>
                   <CRow>
                     <CCol col="6" class="text-left">
-                      <CLoadingButton ref="submitBtn" :onChange="submit" timeout="2000" color="primary">Login</CLoadingButton>
+                      <CButton id="login-btn" @click="submit" color="primary">Login</CButton>
                     </CCol>
                     <CCol col="6" class="text-right">
                       <CButton to="/forgot" color="link" class="px-0 text-white-darkmode">Forgot password?</CButton>
@@ -59,19 +59,18 @@ export default {
         password: ''
       }
     },
-    triggerSubmit(){
-      this.$refs.submitBtn.methodOnClick()
-    },
     submit(){
-      this.spinner = true;
+      this.$root.btn_load(true, 'login-btn', 'Login');
       this.$store.dispatch('auth/signIn', this.form)
       .then(() => {
         this.spinner = false;
         this.$router.replace({
           name: "Dashboard"
         });
+        this.$root.btn_load(false, 'login-btn', 'Login');
       })
       .catch(() => {
+          this.$root.btn_load(false, 'login-btn', 'Login');
           this.spinner = false;
           this.form.password = '';
           this.$store.dispatch('notification/addNotification', {

@@ -16,6 +16,14 @@
         items-per-page-select
         
       >
+        <template #description="{item}">
+            <td v-if="item.description">
+                {{item.description}}
+            </td>
+            <td v-else>
+                
+            </td>
+        </template>
         <template #action="{item}">
             <td>
                 <div>

@@ -59,12 +59,16 @@ export default {
                 to: '/inventory/items',
               },
               {
-                name: 'Stock In/Out',
-                // to: '/dropdown/second',
+                name: 'Stock In',
+                to: '/inventory/stockin',
+              },
+              {
+                name: 'Stock Out',
+                to: '/inventory/stockout',
               },
               {
                 name: 'Inventory',
-                // to: '/dropdown/second',
+                to: '/inventory',
               },
             ]
           },

@@ -49,7 +49,9 @@
                         value="true"
                         :checked="true"
                         />
-                        <CustomersTable/>
+                        <CustomersTable
+                        :items="customers"
+                        />
                     </CCardFooter>
                 </CCard>
             </CCol>
@@ -58,12 +60,19 @@
 </template>
 <script>
 import CustomersTable from './CustomersTable';
+import { mapGetters } from 'vuex'
+
 export default {
     components: {
         CustomersTable
     },
+    computed: {
+        ...mapGetters({ 
+            customers: "customer/customer",
+        }),
+    },
     created(){
-        console.log(this.$route);
+        this.$store.dispatch('customer/fetchCustomer');
     }
 }
 </script>

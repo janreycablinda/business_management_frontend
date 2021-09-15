@@ -1,6 +1,6 @@
 // Here you can add other styles
 .text-white{
-    color:#fff;
+    color:#fff !important;
 }
 .bold {
     font-weight:bold;
@@ -78,3 +78,15 @@ $vs-component-line-height: 1.7 !default;
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.15);
   }
 // $vs-component-placeholder-color: #fff !default;
+  ul.no-bullets {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+.custom-table {
+    width:100%;
+    border:1px solid #4C4C5B;
+}
+.custom-table th, .custom-table td{
+    border:1px solid #4C4C5B;
+}

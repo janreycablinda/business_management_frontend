@@ -8,7 +8,20 @@ import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store/index'
 import axios from 'axios'
 import Vuelidate from 'vuelidate'
+import VCalendar from 'v-calendar'
+
+Vue.use(VCalendar)
 Vue.use(Vuelidate)
+
+import excel from 'vue-excel-export'
+ 
+Vue.use(excel)
+
+const moment = require('moment')
+ 
+Vue.use(require('vue-moment'), {
+    moment
+});
 
 require("@/store/subscriber");
 
@@ -21,7 +34,27 @@ store.dispatch("auth/attempt", localStorage.getItem("token")).then(() => {
     el: '#app',
     router,
     store,
-    //CIcon component documentation: https://coreui.io/vue/docs/components/icon
+    data: {
+      btn_load(status, elem, text) {
+        var button = document.getElementById(elem);
+        if (status) {
+          button.innerHTML = text + ' <div role="status" aria-hidden="false" aria-label="Loading" class="spinner-border spinner-border-sm text-white"></div>';
+          button.disabled = true; 
+        } else {
+          button.innerHTML = text;
+          button.disabled = false; 
+        }
+      },
+      momentParse(data) {
+          return moment(data).fromNow();
+      },
+      momentFormat(data){
+        return moment(data, "YYYY-MM-DD h:mm:ss").format('YYYY/MM/DD');
+      },
+      momentFormatDateTime(data){
+        return moment(data, "YYYY-MM-DD h:mm:ss").format('YYYY/MM/DD hh:mm A');
+      },
+    },
     icons,
     template: '<App/>',
     components: {

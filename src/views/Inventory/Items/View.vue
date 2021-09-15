@@ -5,7 +5,7 @@
                 <CCardHeader>
                     <CButton size="sm" @click="addModal = new Date()" color="primary">NEW ITEM</CButton>
                     <CButton size="sm" @click="groupModalData = new Date()" color="primary" class="ml-1">GROUPS</CButton>
-                    <CButton size="sm" color="primary" class="ml-1">IMPORT ITEMS</CButton>
+                    <CButton size="sm" to="/inventory/import-items" color="primary" class="ml-1">IMPORT ITEMS</CButton>
                 </CCardHeader>
                 <CCardBody>
                     <ItemTable

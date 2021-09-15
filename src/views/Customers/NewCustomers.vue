@@ -11,8 +11,9 @@
                             <CRow>
                                 <CCol lg="6">
                                     <CInput
-                                        label="Company Name"
+                                        label="Company Name *"
                                         autocomplete="name"
+                                        v-model="form.company_name"
                                     />
                                 </CCol>
                                 <CCol lg="6">
@@ -129,7 +130,7 @@
                 
             </CCardBody>
             <CCardFooter align="left">
-                <CButton color="primary">SAVE</CButton>
+                <CButton @click="submit" color="primary">SAVE</CButton>
             </CCardFooter>
         </CCard>
     </div>
@@ -143,10 +144,23 @@ export default {
     },
     data(){
         return {
-            placement: 'top'
+            placement: 'top',
+            form: this.getEmptyForm()
         }
     },
     methods: {
+        getEmptyForm(){
+            return {
+                company_name: ''
+            }
+        },
+        submit(){
+            this.$store.dispatch('customer/addCustomer', this.form).then(() => {
+                this.$router.replace({
+                    name: "Customers"
+                });
+            });
+        },
         withPopper(dropdownList, component, { width }) {
         /**
          * We need to explicitly define the dropdown width since
@@ -241,6 +255,7 @@ export default {
     { value: 'PW', label: 'Palau' },
     { value: 'PA', label: 'Pennsylvania' },
     { value: 'PR', label: 'Puerto Rico' },
+    { value: 'PHILIPPINES', label: 'Philippines' },
     { value: 'RI', label: 'Rhode Island' },
     { value: 'SC', label: 'South Carolina' },
     { value: 'SD', label: 'South Dakota' },
@@ -253,7 +268,8 @@ export default {
     { value: 'WA', label: 'Washington' },
     { value: 'WV', label: 'West Virginia' },
     { value: 'WI', label: 'Wisconsin' },
-    { value: 'WY', label: 'Wyoming' }
+    { value: 'WY', label: 'Wyoming' },
+    
   ]
 }
 </script>

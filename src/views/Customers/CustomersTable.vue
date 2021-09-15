@@ -36,7 +36,7 @@ export default {
     fields: {
       type: Array,
       default () {
-        return ['#', 'company', 'primary_contact', 'primary_email', 'phone', 'status', 'action']
+        return ['#', 'company_name', 'primary_contact', 'primary_email', 'phone', 'status', 'action']
       }
     },
     caption: {

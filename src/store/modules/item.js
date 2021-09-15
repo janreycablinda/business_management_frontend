@@ -21,16 +21,10 @@ export default {
     },
 
     UPDATE_ITEM(state, data) {
-        
-        state.item = state.item.reduce((items , v) => {
-            if(v.id == data.id){
-                items.push(data)
-            }else{
-                items.push(v)
-            }
-            return items;
-        }, []);
-        
+        const index = state.item.findIndex(item => item.id === data.id);
+        if(index !== -1){
+          state.item.splice(index, 1, data);
+        }
     },
 
     DELETE_ITEM(state, id) {
@@ -53,6 +47,7 @@ export default {
             qty: data.qty,
             price: data.price,
             unit: data.unit,
+            notifier: data.notifier,
             unit_cost: data.unit_cost,
             group_id: data.group_id.value,
             user_id: rootState.auth.user.id,
@@ -80,6 +75,7 @@ export default {
             qty: data.qty,
             price: data.price,
             unit: data.unit,
+            notifier: data.notifier,
             unit_cost: data.unit_cost,
             group_id: data.group_id,
             user_id: rootState.auth.user.id,
@@ -103,7 +99,7 @@ export default {
         if(response.data == 200){
             dispatch('notification/addNotification', {
                 type: 'success',
-                message: 'Successfully Added!'
+                message: 'Successfully Deleted!'
             }, {root: true});
             commit('DELETE_ITEM', id);
         }else{

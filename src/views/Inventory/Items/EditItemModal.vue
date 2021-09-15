@@ -57,6 +57,14 @@
             invalidFeedback="Unit Cost is required!"
             :value.sync="$v.form_edit.unit_cost.$model"
         />
+        <CInput
+            type="number"
+            label="Minimum Notifier *"
+            v-model="form_edit.notifier"
+            :isValid="checkIfValid('notifier')"
+            invalidFeedback="Minimum Notifier is required!"
+            :value.sync="$v.form_edit.notifier.$model"
+        />
         <label>Group *</label>
         <v-select
             :options="groups | groupFilter" 
@@ -153,6 +161,9 @@ export default {
                 group_id: {
                     required
                 },
+                notifier: {
+                    required
+                },
             },
         }
     },
@@ -188,6 +199,7 @@ export default {
                 qty: '',
                 unit_cost: '',
                 group_id: '',
+                notifier: ''
             }
         }
     },
