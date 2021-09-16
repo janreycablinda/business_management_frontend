@@ -22,6 +22,12 @@ export default {
         let items = data.concat(state.stockout);
         state.stockout = items;
     },
+    UPDATE_STOCKOUT(state, data){
+        const index = state.stockout.findIndex(item => item.id === data.id);
+        if(index !== -1){
+          state.stockout.splice(index, 1, data);
+        }
+    },
     SET_STOCKOUT_TEMP(state, data) {
         state.stockout_temp = data;
     },
@@ -87,7 +93,7 @@ export default {
     },
 
     async updateStockout({commit, dispatch, rootState}, data) {
-        await axios.post("resources/update_stockout", {
+        await axios.put("resources/update_stockout", {
             id: data.form.id,
             custom: data.form.custom,
             customer_id: data.form.customer_id.value,
@@ -107,7 +113,7 @@ export default {
             commit('item/UPDATE_ITEM', item, {root: true});
           });
 
-          commit('ADD_STOCKOUT', [response.data.stockout]);
+          commit('UPDATE_STOCKOUT', response.data.stockout);
           commit('SET_STOCKOUT_TEMP', []);
 
         //   if(response.data.notification){

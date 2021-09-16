@@ -143,20 +143,20 @@ export default {
             return sum;
         },
         countStockOnHand(data){
-            console.log(data);
             let sum = 0;
-            if(this.stockout){
+            if(this.stockout.length != 0){
                 this.stockout.forEach(item => {
-                    if(item.stockout_temps.item_id == data.id){
-                        console.log(item.stockout_temps.id);
-                        sum += item.stockout_temps.qty;
-                    }
+                    item.stockout_temps.forEach(temp => {
+                        console.log(temp.item_id + ' ' + data.id);
+                        if(temp.item_id == data.id){
+                            sum += parseInt(temp.qty);
+                        }
+                    })
                 });
                 return sum + data.qty;
             }else{
                 return sum + data.qty;
             }
-            
         },
         multiplySellingPrice(qty, price){
             const totalSellingPrice = qty * price;

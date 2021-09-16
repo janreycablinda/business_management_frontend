@@ -102,7 +102,7 @@
        </CRow>
       <template #footer>
         <CButton @click="editModalShow = false" color="secondary">CLOSE</CButton>
-        <CButton @click="submit" color="primary">UPDATE</CButton>
+        <CButton id="btn-stockin-update" @click="submit" color="primary">UPDATE</CButton>
       </template>
     </CModal>
 </template>
@@ -236,6 +236,7 @@ export default {
         submit(){
             this.validate();
             if (this.isValid) {
+                this.$root.btn_load(true, 'btn-stockin-update', 'UPDATE');
                 if(this.stockin_temp != ''){
                     let formData = new FormData();
                     formData.append('image', this.form.receipt);
@@ -256,6 +257,7 @@ export default {
                          this.editModalShow = false;
                          this.form = this.getEmptyForm();
                          this.form_temp = this.getEmptyFormTemp();
+                         this.$root.btn_load(false, 'btn-stockin-update', 'UPDATE');
                      });
                 }else{
                     this.$store.dispatch('notification/addNotification', {

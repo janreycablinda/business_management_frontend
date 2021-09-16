@@ -103,7 +103,7 @@
        </CRow>
       <template #footer>
         <CButton @click="addModalShow = false" color="secondary">CLOSE</CButton>
-        <CButton @click="submit" color="primary">SAVE</CButton>
+        <CButton id="add-stockin-btn" @click="submit" color="primary">SAVE</CButton>
       </template>
     </CModal>
 </template>
@@ -215,6 +215,7 @@ export default {
         submit(){
             this.validate();
             if (this.isValid) {
+                this.$root.btn_load(true, 'add-stockin-btn', 'SAVE');
                 if(this.stockin_temp != ''){
                     let formData = new FormData();
                     formData.append('image', this.form.receipt);
@@ -234,6 +235,7 @@ export default {
                          this.addModalShow = false;
                          this.form = this.getEmptyForm();
                          this.form_temp = this.getEmptyFormTemp();
+                         this.$root.btn_load(false, 'add-stockin-btn', 'SAVE');
                      });
                 }else{
                     this.$store.dispatch('notification/addNotification', {

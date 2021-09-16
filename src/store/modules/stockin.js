@@ -81,7 +81,7 @@ export default {
         await axios.post("resources/update_stockin", data.formData, data.config).then(response => {
             dispatch('notification/addNotification', {
                 type: 'success',
-                message: 'Successfully Added!'
+                message: 'Successfully Updated!'
             }, {root: true});
            console.log(response.data);
            response.data.item.forEach(item => {
