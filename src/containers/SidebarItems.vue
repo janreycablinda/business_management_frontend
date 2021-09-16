@@ -118,7 +118,7 @@ export default {
             items: [
               {
                 name: 'Sales',
-                // to: '/dropdown/first',
+                to: '/report/sales',
               },
               {
                 name: 'Expenses',

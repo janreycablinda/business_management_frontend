@@ -27,6 +27,7 @@ const ImportItems = () => import('@/views/Inventory/Items/ImportItems/View')
 const Stockin = () => import('@/views/Inventory/StockIn/View')
 const Stockout = () => import('@/views/Inventory/StockOut/View')
 const Inventory = () => import('@/views/Inventory/Inventory/View')
+const SalesReport = () => import('@/views/Reports/Sales/View')
 
 Vue.use(Router)
 
@@ -426,6 +427,30 @@ export default new Router({
             meta: {
               breadcrumb: [
                 { text: 'Profile' }
+              ]
+            }
+        },
+      ]
+    },
+    {
+      path: '/report',
+      component: TheContainer,
+      children: [
+        {
+            path: '/report/sales',
+            name: 'Sales Report',
+            component: SalesReport,
+            beforeEnter: (to, from, next) => {
+              if (!store.getters["auth/authenticated"]) {
+                next({
+                  name: "Login"
+                });
+              }
+              next();
+            },
+            meta: {
+              breadcrumb: [
+                { text: 'Sales Report' }
               ]
             }
         },
