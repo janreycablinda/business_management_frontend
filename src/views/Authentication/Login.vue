@@ -7,7 +7,7 @@
             <CCard class="p-4">
               <CCardBody>
                 <CForm class="text-center">
-                  <h1>Login</h1>
+                  <h1>LOGINS</h1>
                   <p class="text-muted">Sign In to your account</p>
                   <CInput
                     placeholder="Username"
